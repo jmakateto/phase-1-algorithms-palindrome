@@ -1,25 +1,27 @@
 function isPalindrome(word) {
-  // Write your algorithm here
-}
+  // Convert the input word to lowercase
+  word = word.toLowerCase();
 
-/* 
-  Add your pseudocode here
-*/
+  // Initialize two pointers, one at the start and the other at the end of the word
+  let start = 0;
+  let end = word.length - 1;
 
-/*
-  Add written explanation of your solution here
-*/
+  // Iterate until the start pointer is less than the end pointer
+  while (start < end) {
+    // If the characters at the start and end pointers are different, it's not a palindrome
+    if (word[start] !== word[end]) {
+      return false;
+    }
 
-// You can run `node index.js` to view these console logs
-if (require.main === module) {
-  // add your own custom tests in here
-  console.log("Expecting: true");
-  console.log("=>", isPalindrome("racecar"));
+    // Move the start pointer to the next character
+    start++;
 
-  console.log("");
+    // Move the end pointer to the previous character
+    end--;
+  }
 
-  console.log("Expecting: false");
-  console.log("=>", isPalindrome("robot"));
+  // If the loop completes without finding any differences, it's a palindrome
+  return true;
 }
 
 module.exports = isPalindrome;
